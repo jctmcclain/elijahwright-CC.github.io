@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="services.xsd">
+  <service>
+    <name>Backpacking</name>
+    <description>Explore the wilderness with our experienced guides, who will ensure your safety and enjoyment along the way.</description>
+  </service>
+  
+  <service>
+    <name>Climbing</name>
+    <description>Challenge yourself with thrilling rock climbing experiences, guided by certified experts.</description>
+  </service>
+  
+  <service>
+    <name>Land Navigation</name>
+    <description>Master the art of orienteering and navigate with confidence using maps, compasses, and GPS technology.</description>
+  </service>
+</services>
