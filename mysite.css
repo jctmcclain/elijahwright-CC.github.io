@@ -4,11 +4,13 @@ body, h1, h2, h3, p, ul, li {
     padding: 0;
     font-family: Arial, sans-serif;
 }
+
 body {
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
 }
+
 a {
     text-decoration: none;
     color: #333;
@@ -20,43 +22,47 @@ nav {
     background-color: #333;
     padding: 10px 0;
 }
+
 nav ul {
     list-style: none;
     text-align: center;
 }
+
 nav ul li {
     display: inline;
     margin: 0 15px;
 }
+
 nav ul li a {
     color: white;
     font-size: 1.2rem;
 }
+
 /* Services Section Styling */
 .services {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
 }
 
 .service {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  margin: 10px;
-  width: 30%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 30%;
 }
 
 .service h2 {
-  font-size: 1.5rem;
-  color: #2a3d4f;
+    font-size: 1.5rem;
+    color: #2a3d4f;
 }
 
 .service p {
-  font-size: 1rem;
-  color: #555;
+    font-size: 1rem;
+    color: #555;
 }
 
 
@@ -65,4 +71,73 @@ header {
     background-color: #2a3d4f;
     color: white;
     text-align: center;
-    padding: 50px
+    padding: 50px; /* Corrected this line */
+}
+
+/* Profile Section (New Section) */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+blockquote {
+    font-style: italic;
+    color: #555;
+}
+
+blockquote-footer {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Feedback Form Styling */
+form {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form .form-control {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
