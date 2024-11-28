@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Customer Profile | Adventure Service</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Container for the profile -->
+<div class="container my-5">
+    <div class="row justify-content-center">
+
+        <!-- Profile Card -->
+        <div class="card" style="width: 18rem;">
+            <!-- Make sure the image path is correct -->
+            <img src="adventure-photo.jpg" class="card-img-top" alt="Adventure Photo">
+            <div class="card-body">
+                <h5 class="card-title">Adventure Name</h5>
+                <p class="card-text"><strong>Date:</strong> January 20, 2024</p>
+                <p class="card-text"><strong>Customer:</strong> John Doe</p>
+                <blockquote class="blockquote">
+                    <p class="mb-0">"This was the best adventure I've ever been on!"</p>
+                    <footer class="blockquote-footer">John Doe <cite title="Source Title">Customer</cite></footer>
+                </blockquote>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac orci vitae ante vestibulum fermentum...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Feedback Form Section -->
+    <h2 class="text-center my-5">Get in Touch</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="moreInfo">More Information</label>
+                    <textarea class="form-control" id="moreInfo" rows="3" placeholder="Tell us what you'd like to know more about."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="feedback">Feedback</label>
+                    <textarea class="form-control" id="feedback" rows="3" placeholder="Share your feedback with us."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS & dependencies (Popper.js and jQuery) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
