@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,18 +7,27 @@
     <title>Customer Profile | Adventure Service</title>
     <!-- Link to Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to your custom CSS (mysite.css) -->
+    <link rel="stylesheet" href="stylesheets/mysite.css">
 </head>
 <body>
 
+<!-- Navigation Bar -->
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="customer-profile.html">Customer Profile</a></li>
+    </ul>
+</nav>
 
-<!-- Container for the profile -->
+<!-- Profile Section -->
 <div class="container my-5">
     <div class="row justify-content-center">
 
-
         <!-- Profile Card -->
         <div class="card" style="width: 18rem;">
-            <!-- Make sure the image path is correct -->
             <img src="adventure-photo.jpg" class="card-img-top" alt="Adventure Photo">
             <div class="card-body">
                 <h5 class="card-title">Adventure Name</h5>
@@ -32,9 +41,7 @@
             </div>
         </div>
 
-
     </div>
-
 
     <!-- Feedback Form Section -->
     <h2 class="text-center my-5">Get in Touch</h2>
@@ -55,12 +62,10 @@
     </div>
 </div>
 
-
-<!-- Bootstrap JS & dependencies (Popper.js and jQuery) -->
+<!-- Bootstrap JS & dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 
 </body>
 </html>
