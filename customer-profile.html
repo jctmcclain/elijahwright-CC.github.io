@@ -14,8 +14,10 @@
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
+        <li><a href="adventures.html">Adventures</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="customer-profile.html">Customer Profile</a></li>
+        <li><a href="faq.html">FAQ</a></li>
     </ul>
 </nav>
 
@@ -43,7 +45,7 @@
     <h2 class="text-center my-5">Get in Touch</h2>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form>
+            <form id="feedbackForm">
                 <div class="form-group">
                     <label for="moreInfo">More Information</label>
                     <textarea class="form-control" id="moreInfo" rows="3" placeholder="Tell us what you'd like to know more about."></textarea>
@@ -54,10 +56,43 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+
+            <!-- Display Submitted Info -->
+            <div id="results" class="mt-4" style="display: none;">
+                <h3>Thank you for your submission!</h3>
+                <p><strong>More Information:</strong> <span id="displayMoreInfo"></span></p>
+                <p><strong>Feedback:</strong> <span id="displayFeedback"></span></p>
+            </div>
         </div>
     </div>
 </div>
 
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2024 Caffeinated Climbing | All Rights Reserved</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    // JavaScript to handle form submission and display the results
+    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get form values
+        const moreInfo = document.getElementById('moreInfo').value;
+        const feedback = document.getElementById('feedback').value;
+
+        // Display form values in the results section
+        document.getElementById('displayMoreInfo').textContent = moreInfo;
+        document.getElementById('displayFeedback').textContent = feedback;
+
+        // Show the results section
+        document.getElementById('results').style.display = 'block';
+
+        // Optionally, clear the form
+        document.getElementById('feedbackForm').reset();
+    });
+</script>
+
 </body>
 </html>
-
