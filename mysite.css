@@ -24,18 +24,22 @@ nav ul {
     text-align: center;
 }
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin: 0 15px;
 }
 nav ul li a {
     color: white;
     font-size: 1.2rem;
 }
+nav ul li a:hover {
+    color: #ff9800;
+}
 
 /* Container Styling */
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 /* Profile Card */
@@ -44,6 +48,7 @@ nav ul li a {
     border: 1px solid #ddd;
     border-radius: 8px;
     margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .card-img-top {
     width: 100%;
@@ -67,6 +72,8 @@ nav ul li a {
 .blockquote {
     font-style: italic;
     color: #444;
+    padding-left: 15px;
+    border-left: 5px solid #ddd;
 }
 .blockquote-footer {
     color: #777;
@@ -89,7 +96,18 @@ nav ul li a {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 .btn:hover {
     background-color: #555;
 }
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
