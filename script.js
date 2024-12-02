@@ -1,29 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | Caffeinated Climbing</title>
-  <link rel="stylesheet" href="stylesheets/mysite.css">
-</head>
-<body>
+// Function to load the XML data and display it
+function loadServices() {
+  // Fetch the XML file
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "services.xml", true);  // Ensure services.xml path is correct
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var xmlDoc = xhr.responseXML;
+      
+      // Check if XML is loaded correctly
+      console.log("XML Loaded Successfully", xmlDoc);
 
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="store.html">Store</a></li>
-  </ul>
-</nav>
+      // Get all service elements
+      var services = xmlDoc.getElementsByTagName("service");
+      var output = '';
 
-<div class="container">
-  <h1>Our Services</h1>
-  <div id="services-container">
-    <!-- Services will be loaded here dynamically -->
-  </div>
-</div>
+      // Loop through each service and build the HTML to display
+      for (var i = 0; i < services.length; i++) {
+        var name = services[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+        var description = services[i].getElementsByTagName("description")[0].childNodes[0].nodeValue;
+        var duration = services[i].getElementsByTagName("duration")[0].childNodes[0].nodeValue;
+        var cost = services[i].getElementsByTagName("cost")[0].childNodes[0].nodeValue;
+        var departs = services[i].getElementsByTagName("departs")[0].childNodes[0].nodeValue;
 
-<script src="script.js"></script>
-</body>
-</html>
+        output += `
+          <div class="service">
+            <h2>${name}</h2>
+            <p><strong>Description:</strong> ${description}</p>
+            <p><strong>Duration:</strong> ${duration}</p>
+            <p><strong>Cost:</strong> ${cost}</p>
+            <p><strong>Departs:</strong> ${departs}</p>
+          </div>
+        `;
+      }
+
+      // Insert the output into the HTML
+      document.getElementById("services-container").innerHTML = output;
+    } else {
+      console.log("Error loading XML or service data");
+    }
+  };
+  xhr.send();
+}
+
+// Call the function when the window loads
+window.onload = loadServices;
