@@ -6,99 +6,86 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Customer Profile | Caffeinated Climbing</title>
     <link rel="stylesheet" href="stylesheets/mysite.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Caffeinated Climbing</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="services.html">Services</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="customer-profile.html">Customer Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="store.html">Store</a>
-            </li>
-        </ul>
-    </div>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="customer-profile.html">Customer Profile</a></li>
+        <li><a href="store.html">Store</a></li>
+    </ul>
 </nav>
 
 <!-- Hero Section -->
-<div class="hero-section text-center py-5 bg-info text-white">
+<div class="hero-section text-center">
     <h1>Caffeinated Climbing</h1>
     <p>Your Adventure Guide Service</p>
 </div>
 
-<!-- Adventure Information Section -->
+<!-- Adventure List Section -->
 <div class="container my-5">
-    <h2 class="text-center mb-4">Customer Adventure Profiles</h2>
+    <h2 class="section-title text-center">Customer Adventures</h2>
 
-    <div id="adventure-list" class="row">
-        <!-- Adventures will be dynamically inserted here -->
+    <div class="row" id="adventure-list">
+        <!-- Adventure cards will be dynamically inserted here from customer-service.js -->
     </div>
+</div>
 
-    <!-- Feedback Form -->
-    <h3 class="my-4 text-center">Provide Feedback</h3>
-    <form id="feedback-form" class="text-center">
+<!-- Feedback and More Info Section -->
+<div class="container my-5">
+    <h3 class="section-title text-center">Feedback & More Info</h3>
+
+    <form id="feedback-form">
         <div class="form-group">
-            <label for="adventure-name">Adventure Name</label>
-            <input type="text" class="form-control" id="adventure-name" placeholder="Enter adventure name" required>
+            <label for="adventure-name">Name of Adventure</label>
+            <input type="text" class="form-control" id="adventure-name" placeholder="Enter Adventure Name">
         </div>
         <div class="form-group">
-            <label for="feedback">Feedback</label>
-            <textarea class="form-control" id="feedback" rows="4" placeholder="Your feedback" required></textarea>
+            <label for="feedback-text">Feedback</label>
+            <textarea class="form-control" id="feedback-text" rows="3" placeholder="Enter your feedback"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 
 <!-- Footer Section -->
-<footer class="bg-dark text-white text-center py-3">
+<footer class="text-center">
     <p>&copy; 2024 Caffeinated Climbing | All Rights Reserved</p>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="customer-service.js"></script>
+<script src="customer-service.js"></script> <!-- Link to the JavaScript file -->
 <script>
-// Fetch adventure data and display it dynamically
-window.onload = function() {
-    // Get the adventure list element where we will insert the adventures
-    const adventureList = document.getElementById("adventure-list");
+    // Check if customer-service.js is loaded and the data is being accessed
+    window.onload = function() {
+        console.log("Page loaded");
+        console.log("Adventure Data: ", adventures);
 
-    // Loop through the adventures data from customer-service.js
-    adventures.forEach(function(adventure) {
-        const adventureCard = `
-        <div class="col-md-4">
-            <div class="card">
-                <img src="${adventure.adventurephoto}" class="card-img-top" alt="${adventure.adventurename}">
-                <div class="card-body">
-                    <h5 class="card-title">${adventure.adventurename}</h5>
-                    <p class="card-text">${adventure.excurstionstmt}</p>
+        // Get the adventure list element where we will insert the adventures
+        const adventureList = document.getElementById("adventure-list");
+
+        // Loop through the adventures data from customer-service.js
+        adventures.forEach(function(adventure) {
+            const adventureCard = `
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="${adventure.adventurephoto}" class="card-img-top" alt="${adventure.adventurename}">
+                    <div class="card-body">
+                        <h5 class="card-title">${adventure.adventurename}</h5>
+                        <p class="card-text">${adventure.excurstionstmt}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        `;
-        // Append each adventure card to the adventure list
-        adventureList.innerHTML += adventureCard;
-    });
-}
+            `;
+            // Append each adventure card to the adventure list
+            adventureList.innerHTML += adventureCard;
+        });
+    }
 </script>
-
 </body>
 </html>
 
