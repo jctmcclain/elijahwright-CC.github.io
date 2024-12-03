@@ -4,91 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Customer Profile | Adventure Service</title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/mysite.css">
+    <title>Customer Profile | Caffeinated Climbing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/mysite.css">
+    <script src="customer-profile.js" defer></script>
 </head>
 <body>
 
-<!-- Navigation Bar -->
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="customer-profile.html">Customer Profile</a></li>
-        <li><a href="store.html">Store</a></li>
-    </ul>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Caffeinated Climbing</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="customer-profile.html">Customer Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
-<!-- Container for the profile -->
+<!-- Hero Section -->
+<header class="bg-primary text-white text-center py-4">
+    <h1>Customer Profiles</h1>
+    <p>See what our customers are saying about their adventures!</p>
+</header>
+
+<!-- Customer Cards Section -->
 <div class="container my-5">
-    <div class="row justify-content-center">
-
-        <!-- Profile Card -->
-        <div class="card" style="width: 18rem;">
-            <img src="Adventure-Photo.jpg" class="card-img-top" alt="Adventure Photo">
-            <div class="card-body">
-                <h5 class="card-title">Adventure Name</h5>
-                <p class="card-text"><strong>Date:</strong> January 20, 2024</p>
-                <p class="card-text"><strong>Customer:</strong> Alex Amador</p>
-                <blockquote class="blockquote">
-                    <p class="mb-0">"This was the best adventure I've ever been on! I learned so much about climbing, and the guides made sure I felt safe and confident every step of the way. Can't wait for my next adventure!"</p>
-                    <footer class="blockquote-footer">Alex Amador <cite title="Source Title">Customer</cite></footer>
-                </blockquote>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Feedback Form Section -->
-    <h2 class="text-center my-5">Get in Touch</h2>
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form id="feedbackForm">
-                <div class="form-group">
-                    <label for="moreInfo">More Information</label>
-                    <textarea class="form-control" id="moreInfo" rows="3" placeholder="Tell us what you'd like to know more about."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="feedback">Feedback</label>
-                    <textarea class="form-control" id="feedback" rows="3" placeholder="Share your feedback with us."></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-
-            <!-- Display Submitted Info -->
-            <div id="results" class="mt-4" style="display: none;">
-                <h3>Thank you for your submission!</h3>
-                <p><strong>More Information:</strong> <span id="displayMoreInfo"></span></p>
-                <p><strong>Feedback:</strong> <span id="displayFeedback"></span></p>
-            </div>
-        </div>
-    </div>
+    <div id="customer-cards" class="row"></div>
 </div>
 
-<!-- Footer Section -->
-<footer>
-    <p>&copy; 2024 Caffeinated Climbing | All Rights Reserved</p>
+<!-- Feedback Form -->
+<div class="container my-5">
+    <h2 class="text-center">We'd Love to Hear From You</h2>
+    <form id="feedback-form">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 Caffeinated Climbing. All Rights Reserved.</p>
 </footer>
 
-<!-- JavaScript -->
-<script>
-    // JavaScript to handle form submission and display the results
-    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
 
-        // Get form values
-        const moreInfo = document.getElementById('moreInfo').value;
-        const feedback = document.getElementById('feedback').value;
-
-        // Display form values in the results section
-        document.getElementById('displayMoreInfo').textContent = moreInfo;
-        document.getElementById('displayFeedback').textContent = feedback;
-
-        // Show the results section
-        document.getElementById('results').style.display = 'block';
-
-        // Optionally, clear the form
         document.getElementById('feedbackForm').reset();
     });
 </script>
