@@ -3,66 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Customer Profile | Caffeinated Climbing</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/mysite.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 
 <!-- Navigation Bar -->
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="customer-profile.html">Customer Profile</a></li>
-        <li><a href="store.html">Store</a></li>
-    </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Caffeinated Climbing</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item active"><a class="nav-link" href="customer-profile.html">Customer Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+        </ul>
+    </div>
 </nav>
 
 <!-- Hero Section -->
 <div class="hero-section text-center">
-    <h1>Caffeinated Climbing</h1>
-    <p>Your Adventure Guide Service</p>
+    <h1>Customer Adventures</h1>
+    <p>Explore the stories behind our greatest adventures!</p>
 </div>
 
-<!-- Customer Profile Section -->
+<!-- Adventure Cards Section -->
 <div class="container my-5">
-    <h2 class="section-title text-center">Customer Adventures</h2>
-    <div class="row" id="adventure-list"></div>
-</div>
-
-<!-- Customer Feedback Form Section -->
-<div class="container my-5">
-    <h2 class="section-title text-center">Provide Feedback</h2>
-    <form id="feedback-form">
-        <div class="form-group">
-            <label for="adventureName">Adventure Name:</label>
-            <input type="text" class="form-control" id="adventureName" required>
-        </div>
-        <div class="form-group">
-            <label for="customerName">Your Name:</label>
-            <input type="text" class="form-control" id="customerName" required>
-        </div>
-        <div class="form-group">
-            <label for="feedback">Feedback:</label>
-            <textarea class="form-control" id="feedback" rows="3" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit Feedback</button>
-    </form>
+    <div class="row" id="adventure-list">
+        <!-- Adventure cards will be dynamically inserted here by customer-profile.js -->
+    </div>
 </div>
 
 <!-- Footer Section -->
-<footer>
+<footer class="text-center mt-5">
     <p>&copy; 2024 Caffeinated Climbing | All Rights Reserved</p>
 </footer>
 
 <script src="customer-profile.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
 </body>
 </html>
+
 
 
