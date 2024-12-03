@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
               <img src="${product.adventurephoto}" class="card-img-top" alt="${product.adventurename}">
               <div class="card-body">
                 <h5 class="card-title">${product.adventurename}</h5>
-                <p class="card-text">${product.excurstionstmt}</p>
+                <p>${product.excurstionstmt}</p>
                 <p class="text-muted">${product.adventuredate}</p>
-                <p class="card-text">${product.descriptionfile}</p>
+                <p>${product.descriptionfile}</p>
                 <div id="paypal-button-container-${product.adventurename.replace(/\s+/g, '-')}"></div>
               </div>
             </div>
@@ -28,9 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return actions.order.create({
               purchase_units: [{
                 description: product.adventurename,
-                amount: {
-                  value: '50.00' // Replace with the actual price
-                }
+                amount: { value: '50.00' }
               }]
             });
           },
@@ -44,4 +42,5 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((error) => console.error("Error fetching products:", error));
 });
+
 
