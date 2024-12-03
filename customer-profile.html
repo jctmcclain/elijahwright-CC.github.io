@@ -60,30 +60,31 @@
 
 <script src="customer-service.js"></script> <!-- Link to the JavaScript file -->
 <script>
-    // Check if customer-service.js is loaded and the data is being accessed
     window.onload = function() {
-        console.log("Page loaded");
-        console.log("Adventure Data: ", adventures);
+        // Debugging: Check if adventures data is loaded
+        console.log("Adventures Data Loaded:", adventures);
 
-        // Get the adventure list element where we will insert the adventures
         const adventureList = document.getElementById("adventure-list");
 
-        // Loop through the adventures data from customer-service.js
-        adventures.forEach(function(adventure) {
-            const adventureCard = `
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="${adventure.adventurephoto}" class="card-img-top" alt="${adventure.adventurename}">
-                    <div class="card-body">
-                        <h5 class="card-title">${adventure.adventurename}</h5>
-                        <p class="card-text">${adventure.excurstionstmt}</p>
+        // Check if adventures array is loaded correctly
+        if (Array.isArray(adventures)) {
+            adventures.forEach(function(adventure) {
+                const adventureCard = `
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="${adventure.adventurephoto}" class="card-img-top" alt="${adventure.adventurename}">
+                        <div class="card-body">
+                            <h5 class="card-title">${adventure.adventurename}</h5>
+                            <p class="card-text">${adventure.excurstionstmt}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            `;
-            // Append each adventure card to the adventure list
-            adventureList.innerHTML += adventureCard;
-        });
+                `;
+                adventureList.innerHTML += adventureCard;
+            });
+        } else {
+            console.error("Adventures data is not loaded correctly!");
+        }
     }
 </script>
 </body>
