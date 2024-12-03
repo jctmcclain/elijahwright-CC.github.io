@@ -1,6 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const productsURL = "http://158.101.118.50/data/gearlist.json";
-  
+// URL of the JSON data
+const productsURL = "http://158.101.118.50/data/gearlist.json";
+
+// Function to load and display products
+function loadProducts() {
     fetch(productsURL)
         .then(response => {
             if (!response.ok) {
@@ -9,52 +11,38 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(products => {
-            const productContainer = document.getElementById("product-container");
-            productContainer.innerHTML = ""; // Clear any previous content
-            
+            let output = "";
             products.forEach(product => {
-                const productCard = `
-                    <div class="col-md-4">
-                        <div class="card mb-4">
-                            <img src="${product.adventurephoto}" class="card-img-top" alt="${product.adventurename}">
+                output += `
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="${product.image}" class="card-img-top" alt="${product.name}">
                             <div class="card-body">
-                                <h5 class="card-title">${product.adventurename}</h5>
-                                <p>${product.excurstionstmt}</p>
-                                <p class="text-muted">${product.adventuredate}</p>
-                                <p>${product.descriptionfile}</p>
-                                <div id="paypal-button-container-${product.adventurename.replace(/\s+/g, '-')}"></div>
+                                <h5 class="card-title">${product.name}</h5>
+                                <p class="card-text">${product.description}</p>
+                                <p class="card-text"><strong>Price:</strong> $${product.price}</p>
+                                <button class="btn btn-primary" onclick="buyNow('${product.name}', ${product.price})">Buy Now</button>
                             </div>
                         </div>
                     </div>
                 `;
-                productContainer.innerHTML += productCard;
-
-                // Render PayPal button for each product
-                paypal.Buttons({
-                    createOrder: (data, actions) => {
-                        return actions.order.create({
-                            purchase_units: [{
-                                description: product.adventurename,
-                                amount: { value: '50.00' } // Replace with dynamic pricing if available
-                            }]
-                        });
-                    },
-                    onApprove: (data, actions) => {
-                        return actions.order.capture().then(details => {
-                            alert(`Transaction completed by ${details.payer.name.given_name}!`);
-                        });
-                    }
-                }).render(`#paypal-button-container-${product.adventurename.replace(/\s+/g, '-')}`);
             });
+            document.getElementById("product-container").innerHTML = output;
         })
         .catch(error => {
             console.error("Error fetching products:", error);
             document.getElementById("product-container").innerHTML = `
                 <div class="alert alert-danger" role="alert">
-                    Failed to load products. Please try again later.
+                    Failed to load products. Please check your connection or contact support.
                 </div>
             `;
         });
-});
+}
 
+// Function to handle purchase actions
+function buyNow(productName, productPrice) {
+    alert(`You selected ${productName}. Price: $${productPrice}. Proceeding to payment.`);
+}
 
+// Load products on page load
+document.addEventListener("DOMContentLoaded", loadProducts);
