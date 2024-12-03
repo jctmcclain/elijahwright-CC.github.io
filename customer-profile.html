@@ -1,74 +1,100 @@
-<!-- Customer Cards Section -->
-<div class="container my-5">
-    <div id="customer-cards" class="row">
-        <!-- Customer profile card will be dynamically populated here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Customer Profile | Caffeinated Climbing</title>
+    <link rel="stylesheet" href="stylesheets/mysite.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Caffeinated Climbing</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="customer-profile.html">Customer Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="store.html">Store</a>
+            </li>
+        </ul>
     </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section text-center py-5 bg-info text-white">
+    <h1>Caffeinated Climbing</h1>
+    <p>Your Adventure Guide Service</p>
 </div>
 
-<script>
-// JSON Data for Customer Profile
-const customerProfiles = [
-    {
-        "adventurename": "Seneca Rocks",
-        "adventuredate": "July 14, 2024",
-        "adventurephoto": "seneca.png",
-        "customername": "Denver",
-        "customerquote": "Amazing",
-        "excurstionstmt": "Very cool",
-        "descriptionfile": "Seneca Rocks provides climbers a wide array of sport and traditional climbs."
-    },
-    {
-   "adventurename": "New River Gorge",
-   "adventuredate": "August 14, 2024",
-   "adventurephoto": "newriver.png",  // The image for New River Gorge is newriver.png
-   "customername": "Jon",
-   "customerquote": "Righteous",
-   "excurstionstmt": "Wild and Wonderful",
-   "descriptionfile": "Southern West Virginia haven for white water rafters and climbers. Wide array of bolted sport climbs."
-   }, 
-    {
-        "adventurename": "New River Gorge",
-        "adventuredate": "August 14, 2024",
-        "adventurephoto": "newriver.png", // Ensure the image file name is correct
-        "customername": "Jon",
-        "customerquote": "Righteous",
-        "excurstionstmt": "Wild and Wonderful",
-        "descriptionfile": "Southern West Virginia haven for white water rafters and climbers. Wide array of bolted sport climbs."
-    },
-    {
-        "adventurename": "Shawangunk",
-        "adventuredate": "September 14, 2024",
-        "adventurephoto": "gunks.png",
-        "customername": "Frank",
-        "customerquote": "Whoa",
-        "excurstionstmt": "Epic trip",
-        "descriptionfile": "Finest climbing in southern New York. Enjoy the New Paltz area - history and local shops."
-    }
-];
-
-// Function to dynamically display customer profiles
-function loadCustomerProfiles() {
-    const container = document.getElementById("customer-cards");
-    customerProfiles.forEach(profile => {
-        const card = document.createElement("div");
-        card.classList.add("col-md-4");
-        card.innerHTML = `
+<!-- Adventure Information Section -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Customer Adventure Profile</h2>
+    
+    <div class="row">
+        <!-- Adventure Image and Info -->
+        <div class="col-md-6">
             <div class="card">
-                <img src="${profile.adventurephoto}" class="card-img-top" alt="${profile.adventurename}">
+                <img src="newriver.png" class="card-img-top" alt="New River Gorge">
                 <div class="card-body">
-                    <h5 class="card-title">${profile.adventurename}</h5>
-                    <p class="card-text"><strong>Date:</strong> ${profile.adventuredate}</p>
-                    <p class="card-text"><strong>Customer:</strong> ${profile.customername}</p>
-                    <p class="card-text"><strong>Quote:</strong> "${profile.customerquote}"</p>
-                    <p class="card-text">${profile.excurstionstmt}</p>
-                    <a href="#" class="btn btn-primary">Learn More</a>
+                    <h5 class="card-title">New River Gorge</h5>
+                    <p class="card-text">Southern West Virginia haven for white water rafters and climbers. Wide array of bolted sport climbs.</p>
                 </div>
             </div>
-        `;
-        container.appendChild(card);
-    });
-}
+        </div>
 
-// Call the function to load the profiles on page load
-window.onload = loadCustomerProfiles;
-</script>
+        <!-- Customer Info -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Customer Profile: Jon</h5>
+                    <p><strong>Adventure:</strong> New River Gorge</p>
+                    <p><strong>Date of Adventure:</strong> August 14, 2024</p>
+                    <p><strong>Customer's Quote:</strong> Righteous</p>
+                    <p><strong>Adventure Statement:</strong> Wild and Wonderful</p>
+                    <p><strong>Description:</strong> Southern West Virginia haven for white water rafters and climbers. Wide array of bolted sport climbs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Form -->
+    <h3 class="my-4 text-center">Provide Feedback</h3>
+    <form id="feedback-form" class="text-center">
+        <div class="form-group">
+            <label for="adventure-name">Adventure Name</label>
+            <input type="text" class="form-control" id="adventure-name" placeholder="Enter adventure name" required>
+        </div>
+        <div class="form-group">
+            <label for="feedback">Feedback</label>
+            <textarea class="form-control" id="feedback" rows="4" placeholder="Your feedback" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+    </form>
+</div>
+
+<!-- Footer Section -->
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 Caffeinated Climbing | All Rights Reserved</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
