@@ -1,4 +1,4 @@
-// This is the customer-service.js file that contains adventure data in JSON format
+// customer-service.js
 const adventures = [
     {
         "adventurename": "Seneca Rocks",
@@ -37,4 +37,3 @@ const adventures = [
         "descriptionfile": "Finest climbing in southern New York. Enjoy the New Paltz area - history and local shops."
     }
 ];
-
