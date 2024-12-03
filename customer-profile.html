@@ -27,66 +27,42 @@
     <p>Your Adventure Guide Service</p>
 </div>
 
-<!-- Adventure List Section -->
+<!-- Customer Profile Section -->
 <div class="container my-5">
     <h2 class="section-title text-center">Customer Adventures</h2>
-
-    <div class="row" id="adventure-list">
-        <!-- Adventure cards will be dynamically inserted here from customer-service.js -->
-    </div>
+    <div class="row" id="adventure-list"></div>
 </div>
 
-<!-- Feedback and More Info Section -->
+<!-- Customer Feedback Form Section -->
 <div class="container my-5">
-    <h3 class="section-title text-center">Feedback & More Info</h3>
-
+    <h2 class="section-title text-center">Provide Feedback</h2>
     <form id="feedback-form">
         <div class="form-group">
-            <label for="adventure-name">Name of Adventure</label>
-            <input type="text" class="form-control" id="adventure-name" placeholder="Enter Adventure Name">
+            <label for="adventureName">Adventure Name:</label>
+            <input type="text" class="form-control" id="adventureName" required>
         </div>
         <div class="form-group">
-            <label for="feedback-text">Feedback</label>
-            <textarea class="form-control" id="feedback-text" rows="3" placeholder="Enter your feedback"></textarea>
+            <label for="customerName">Your Name:</label>
+            <input type="text" class="form-control" id="customerName" required>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group">
+            <label for="feedback">Feedback:</label>
+            <textarea class="form-control" id="feedback" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Feedback</button>
     </form>
 </div>
 
 <!-- Footer Section -->
-<footer class="text-center">
+<footer>
     <p>&copy; 2024 Caffeinated Climbing | All Rights Reserved</p>
 </footer>
 
-<script src="customer-service.js"></script> <!-- Link to the JavaScript file -->
-<script>
-    window.onload = function() {
-        // Debugging: Check if adventures data is loaded
-        console.log("Adventures Data Loaded:", adventures);
+<script src="customer-profile.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-        const adventureList = document.getElementById("adventure-list");
-
-        // Check if adventures array is loaded correctly
-        if (Array.isArray(adventures)) {
-            adventures.forEach(function(adventure) {
-                const adventureCard = `
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="${adventure.adventurephoto}" class="card-img-top" alt="${adventure.adventurename}">
-                        <div class="card-body">
-                            <h5 class="card-title">${adventure.adventurename}</h5>
-                            <p class="card-text">${adventure.excurstionstmt}</p>
-                        </div>
-                    </div>
-                </div>
-                `;
-                adventureList.innerHTML += adventureCard;
-            });
-        } else {
-            console.error("Adventures data is not loaded correctly!");
-        }
-    }
-</script>
 </body>
 </html>
+
 
