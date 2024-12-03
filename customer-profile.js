@@ -49,7 +49,7 @@ function displayAdventures() {
 
         adventureCard.innerHTML = `
             <div class="card">
-                <img src="images/${adventure.adventurephoto}" class="card-img-top" alt="${adventure.adventurename}">
+                <img src="${adventure.adventurephoto}" class="card-img-top" alt="${adventure.adventurename}">
                 <div class="card-body">
                     <h5 class="card-title">${adventure.adventurename}</h5>
                     <p class="card-text">${adventure.excurstionstmt}</p>
@@ -66,3 +66,4 @@ function displayAdventures() {
 
 // Load adventures when the page is ready
 document.addEventListener('DOMContentLoaded', displayAdventures);
+
