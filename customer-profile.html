@@ -45,33 +45,10 @@
 
 <!-- Adventure Information Section -->
 <div class="container my-5">
-    <h2 class="text-center mb-4">Customer Adventure Profile</h2>
-    
-    <div class="row">
-        <!-- Adventure Image and Info -->
-        <div class="col-md-6">
-            <div class="card">
-                <img src="newriver.png" class="card-img-top" alt="New River Gorge">
-                <div class="card-body">
-                    <h5 class="card-title">New River Gorge</h5>
-                    <p class="card-text">Southern West Virginia haven for white water rafters and climbers. Wide array of bolted sport climbs.</p>
-                </div>
-            </div>
-        </div>
+    <h2 class="text-center mb-4">Customer Adventure Profiles</h2>
 
-        <!-- Customer Info -->
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Customer Profile: Jon</h5>
-                    <p><strong>Adventure:</strong> New River Gorge</p>
-                    <p><strong>Date of Adventure:</strong> August 14, 2024</p>
-                    <p><strong>Customer's Quote:</strong> Righteous</p>
-                    <p><strong>Adventure Statement:</strong> Wild and Wonderful</p>
-                    <p><strong>Description:</strong> Southern West Virginia haven for white water rafters and climbers. Wide array of bolted sport climbs.</p>
-                </div>
-            </div>
-        </div>
+    <div id="adventure-list" class="row">
+        <!-- Adventures will be dynamically inserted here -->
     </div>
 
     <!-- Feedback Form -->
@@ -96,11 +73,32 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="customer-service.js"></script>
+<script>
+// Fetch adventure data and display it dynamically
+window.onload = function() {
+    // Get the adventure list element where we will insert the adventures
+    const adventureList = document.getElementById("adventure-list");
+
+    // Loop through the adventures data from customer-service.js
+    adventures.forEach(function(adventure) {
+        const adventureCard = `
+        <div class="col-md-4">
+            <div class="card">
+                <img src="${adventure.adventurephoto}" class="card-img-top" alt="${adventure.adventurename}">
+                <div class="card-body">
+                    <h5 class="card-title">${adventure.adventurename}</h5>
+                    <p class="card-text">${adventure.excurstionstmt}</p>
+                </div>
+            </div>
+        </div>
+        `;
+        // Append each adventure card to the adventure list
+        adventureList.innerHTML += adventureCard;
+    });
+}
+</script>
+
 </body>
 </html>
 
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
