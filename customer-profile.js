@@ -1,4 +1,4 @@
-// customer-service.js
+// Static JSON Data
 const adventures = [
     {
         "adventurename": "Seneca Rocks",
@@ -37,3 +37,32 @@ const adventures = [
         "descriptionfile": "Finest climbing in southern New York. Enjoy the New Paltz area - history and local shops."
     }
 ];
+
+// Function to display the adventures on the page
+function displayAdventures() {
+    const adventureList = document.getElementById('adventure-list');
+    adventureList.innerHTML = ''; // Clear any previous content
+
+    adventures.forEach(adventure => {
+        const adventureCard = document.createElement('div');
+        adventureCard.classList.add('col-md-4', 'mb-4');
+
+        adventureCard.innerHTML = `
+            <div class="card">
+                <img src="images/${adventure.adventurephoto}" class="card-img-top" alt="${adventure.adventurename}">
+                <div class="card-body">
+                    <h5 class="card-title">${adventure.adventurename}</h5>
+                    <p class="card-text">${adventure.excurstionstmt}</p>
+                    <p><strong>Date:</strong> ${adventure.adventuredate}</p>
+                    <p><strong>Customer:</strong> ${adventure.customername}</p>
+                    <p><strong>Quote:</strong> "${adventure.customerquote}"</p>
+                </div>
+            </div>
+        `;
+
+        adventureList.appendChild(adventureCard);
+    });
+}
+
+// Load adventures when the page is ready
+document.addEventListener('DOMContentLoaded', displayAdventures);
