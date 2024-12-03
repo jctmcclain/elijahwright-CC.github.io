@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const productsURL = "https://example.com/products.json"; // Replace with the actual URL.
+  const productsURL = "http://158.101.118.50/data/gearlist.json";
   
   fetch(productsURL)
     .then((response) => response.json())
@@ -44,3 +44,4 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((error) => console.error("Error fetching products:", error));
 });
+
