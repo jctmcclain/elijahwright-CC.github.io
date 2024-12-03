@@ -1,92 +1,54 @@
-// JSON array containing the excursion information
+// Array containing the adventure information
 const adventures = [
     {
-        "adventurename": "Seneca Rocks",
-        "adventuredate": "July 14, 2024",
-        "adventurephoto": "seneca.png",
-        "customername": "Denver",
-        "customerquote": "Amazing",
-        "excurstionstmt": "Very cool",
-        "descriptionfile": "Seneca Rocks provides climbers a wide array of sport and traditional climbs."
+        name: "The Gunks",
+        image: "gunks.png",
+        description: "Explore the cliffs and rock formations at The Gunks, an iconic climbing destination."
     },
     {
-        "adventurename": "Red River Gorge",
-        "adventuredate": "June 14, 2024",
-        "adventurephoto": "rrg.png",
-        "customername": "Marie",
-        "customerquote": "Fantastic",
-        "excurstionstmt": "Beautiful trip",
-        "descriptionfile": "Premier sport climbing area in eastern Kentucky."
+        name: "New River Gorge",
+        image: "newriver.png",
+        description: "Discover stunning views and challenging routes at the New River Gorge, a climber's paradise."
     },
     {
-        "adventurename": "New River Gorge",
-        "adventuredate": "August 14, 2024",
-        "adventurephoto": "newrg.png",
-        "customername": "Jon",
-        "customerquote": "Righteous",
-        "excurstionstmt": "Wild and Wonderful",
-        "descriptionfile": "Southern West Virginia haven for white water rafters and climbers. Wide array of bolted sport climbs."
+        name: "Red River Gorge",
+        image: "rrg.png",
+        description: "Adventure awaits at the Red River Gorge with world-class sport climbing and beautiful scenery."
     },
     {
-        "adventurename": "Shawangunk",
-        "adventuredate": "September 14, 2024",
-        "adventurephoto": "gunks.png",
-        "customername": "Frank",
-        "customerquote": "Whoa",
-        "excurstionstmt": "Epic trip",
-        "descriptionfile": "Finest climbing in southern New York. Enjoy the New Paltz area - history and local shops."
+        name: "Seneca Rocks",
+        image: "seneca.png",
+        description: "Conquer the iconic Seneca Rocks, known for its technical routes and spectacular views."
     }
 ];
 
-// Get the container where the adventure info will be displayed
-const container = document.getElementById("adventure-info-container");
+// Get the container where the images will be displayed
+const container = document.getElementById("adventure-images-container");
 
-// Loop through the adventures array and dynamically create HTML elements
+// Loop through the adventures array and dynamically create image elements
 adventures.forEach(adventure => {
-    // Create a column to hold the content
     const col = document.createElement("div");
     col.classList.add("col-md-3", "mb-4");
     
-    // Create a div for the adventure content
-    const adventureCard = document.createElement("div");
-    adventureCard.classList.add("adventure-card", "text-center");
+    const teamMember = document.createElement("div");
+    teamMember.classList.add("team-member");
 
-    // Create and append the image
     const img = document.createElement("img");
-    img.src = adventure.adventurephoto; // Use the photo filename from the JSON
-    img.alt = adventure.adventurename;  // Use the adventure name as alt text
+    img.src = adventure.image; // Use the image filename
+    img.alt = adventure.name;  // Use the adventure name as the alt text
     img.classList.add("img-fluid", "rounded-circle");
-    adventureCard.appendChild(img);
 
-    // Create and append the adventure name
     const h4 = document.createElement("h4");
-    h4.textContent = adventure.adventurename;
-    adventureCard.appendChild(h4);
+    h4.textContent = adventure.name;
 
-    // Create and append the adventure date
-    const pDate = document.createElement("p");
-    pDate.textContent = `Date: ${adventure.adventuredate}`;
-    adventureCard.appendChild(pDate);
+    const p = document.createElement("p");
+    p.textContent = adventure.description;
 
-    // Create and append the customer's quote
-    const pQuote = document.createElement("p");
-    pQuote.textContent = `"${adventure.customerquote}" - ${adventure.customername}`;
-    adventureCard.appendChild(pQuote);
-
-    // Create and append the excursion statement
-    const pStmt = document.createElement("p");
-    pStmt.textContent = `"${adventure.excurstionstmt}"`;
-    adventureCard.appendChild(pStmt);
-
-    // Create and append the adventure description
-    const pDesc = document.createElement("p");
-    pDesc.textContent = adventure.descriptionfile;
-    adventureCard.appendChild(pDesc);
-
-    // Append the adventure card to the column
-    col.appendChild(adventureCard);
-    
-    // Append the column to the main container
+    // Append all elements to the container
+    teamMember.appendChild(img);
+    teamMember.appendChild(h4);
+    teamMember.appendChild(p);
+    col.appendChild(teamMember);
     container.appendChild(col);
 });
 
