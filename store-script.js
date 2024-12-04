@@ -1,5 +1,5 @@
 // URL of the JSON data
-const productsURL = "http://158.101.118.50/data/gearlist.json";
+const productsURL = "./gearlist.json";
 
 // Function to load and display products
 function loadProducts() {
@@ -18,10 +18,10 @@ function loadProducts() {
                         <div class="card">
                             <img src="${product.image}" class="card-img-top" alt="${product.name}">
                             <div class="card-body">
-                                <h5 class="card-title">${product.name}</h5>
-                                <p class="card-text">${product.description}</p>
-                                <p class="card-text"><strong>Price:</strong> $${product.price}</p>
-                                <button class="btn btn-primary" onclick="buyNow('${product.name}', ${product.price})">Buy Now</button>
+                                <h5 class="card-title">${product.gear_manu}</h5>
+                                <p class="card-text">${product.gear_name}</p>
+                                <p class="card-text"><strong>Price:</strong> $${product.gear_cost}</p>
+                                <button class="btn btn-primary" onclick="buyNow('${product.gear_nam}', ${product.gear_cost})">Buy Now</button>
                             </div>
                         </div>
                     </div>
